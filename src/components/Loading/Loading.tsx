@@ -3,7 +3,7 @@ import './Loading.css'
 
 const Loading = () => (
     <div className="logo">
-        <img src={LOGO_URL} alt="logo" />
+        <img src={LOGO_URL} className='logo-img' alt="logo" />
     </div>
 )
 

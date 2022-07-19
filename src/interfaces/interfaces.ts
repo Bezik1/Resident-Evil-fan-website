@@ -1,3 +1,12 @@
+import { ReactNode } from "react";
+
+export interface Resources {
+    url: string,
+    header: string,
+    resource: string,
+    mesh?: ReactNode
+}
+
 export interface EarthProps {
     props: {
         clicked: boolean,

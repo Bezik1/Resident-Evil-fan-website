@@ -1,4 +1,4 @@
-import { Group, TextureLoader } from 'three'
+import { Group, TextureLoader, Vector3 } from 'three'
 import { useRef } from 'react';
 import { useLoader } from '@react-three/fiber';
 
@@ -7,7 +7,7 @@ import { EarthProps } from '../../interfaces/interfaces';
 
 const Object = (props : EarthProps) =>{
     const { clicked, click, setType } = props.props
-    const { flower, institution_1 } = RESOURCE_TYPES
+    const { flower, institution_1, arklay, europe_lab } = RESOURCE_TYPES
 
     const { EARTH_URL } = TEXTURE_URLS 
     const EARTH_TEXTURE = useLoader(TextureLoader, EARTH_URL)
@@ -16,19 +16,24 @@ const Object = (props : EarthProps) =>{
 
     const handleClick = (type : string) =>{
         click(!clicked)
-        setType(type)
+        if(clicked === false) 
+            setType(type)
+        
     }
+
+    const NewPoint = ({type, pos} : {type : RESOURCE_TYPES, pos : Vector3}) => (
+        <mesh onClick={() => handleClick(type)} position={pos}>
+            <sphereGeometry args={[0.03, 20, 20]} />
+            <pointsMaterial />
+        </mesh>
+    )
 
     return (
         <group ref={earthRef}>
-            <mesh onClick={() => handleClick(flower)} position={[2, -0.7, 1.5]}>
-                <sphereGeometry args={[0.03, 20, 20]} />
-                <pointsMaterial />
-            </mesh>
-            <mesh onClick={() => handleClick(institution_1)} position={[0, 1, 2.4]}>
-                <sphereGeometry args={[0.03, 20, 20]} />
-                <pointsMaterial />
-            </mesh>
+            <NewPoint type={flower} pos={new Vector3(2, -0.7, 1.5)} />
+            <NewPoint type={institution_1} pos={new Vector3(0, 1, 2.4)} />
+            <NewPoint type={arklay} pos={new Vector3(-1, 1, 2.2)} />
+            <NewPoint type={europe_lab} pos={new Vector3(2.4, 1, 0)} />
             <mesh>
                 <sphereGeometry args={[2.6, 100, 200, 100]} />
                 <meshPhongMaterial map={EARTH_TEXTURE} wireframe={true} />

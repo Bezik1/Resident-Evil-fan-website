@@ -1,4 +1,9 @@
-.logo{
+.logo-img{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 250px;
+    left: 45%;
     animation: rotate 2s infinite;
 }
 
