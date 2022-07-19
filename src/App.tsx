@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import { Suspense } from 'react'
 
 import './App.css';
-import Earth from './components/Earth/Earth';
-import Information from './components/Information/Information'
+
+import DataBase from './components/DataBase/DataBase';
+import Loading from './components/Loading/Loading';
 
 const App = () =>{
-  const [clicked, click] = useState(false)
 
   return (
     <div className="App">
-      <Information clicked={clicked} />
-      <Earth clicked={clicked} click={click} />
+      <Suspense fallback={<Loading />}>
+        <DataBase />
+      </Suspense>
     </div>
   );
 }

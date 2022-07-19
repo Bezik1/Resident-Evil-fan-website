@@ -6,13 +6,14 @@ import './Earth.css'
 import Object from './Object'
 import { EarthProps } from '../../interfaces/interfaces'
 
-const Earth = ({ clicked, click } : EarthProps) =>{
+const Earth = (props : EarthProps) =>{
+
     return (
         <div className="Earth">
             <Canvas>
-                <Object clicked={clicked} click={click} />
+                <Object props={props.props} />
                 <ambientLight intensity={0.8}/>
-                <OrbitControls />
+                <OrbitControls autoRotateSpeed={0.2} autoRotate={true} />
             </Canvas>
         </div>
     )
