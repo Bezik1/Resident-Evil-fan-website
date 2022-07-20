@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import { Group } from "three";
 
 export interface Resources {
     url: string,
     header: string,
     resource: string,
-    mesh?: ReactNode
+    mesh?: Group
 }
 
 export interface EarthProps {

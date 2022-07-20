@@ -1,13 +1,39 @@
 .information-container {
+    font-family:garamond,serif;
     z-index: 1;
     position: absolute;
     background: radial-gradient(#326c87, transparent);
-    top: 20px;
     left: 50%;
     width: 700px;
 }
 
+
+
+.umbrella {
+    padding-top: 10px;
+    font-family: garamond,serif;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 900px;
+    color: #fff;
+}
+
+.umbrella-logo {
+    width: 50px;
+    position: absolute;
+    right: 13%;
+    top: 12px;
+}
+
+.umbrella-logo-2 {
+    width: 50px;
+    position: absolute;
+    left: 13%;
+    top: 12px;
+}
+
 .header-text {
+    padding-top: 0.5px;
     font-weight: 500;
     color: #fff;
     font-size: 20px;
@@ -19,7 +45,7 @@
     font-size: 32px;
 }
 
-.information-container > .img {
+.animation-wrapper > .img {
     float: left;
     margin: 20px;
     width: 400px;
