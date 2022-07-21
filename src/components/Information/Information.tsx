@@ -13,7 +13,7 @@ import { OrbitControls } from '@react-three/drei'
 const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
     const infoRef = useRef<HTMLDivElement>(null!)
     
-    const {url, header, resource, mesh} = useResource(type)
+    const { url, header, resource, mesh } = useResource(type)
     const color = new Color('#3c80b5')
 
     useEffect(() =>{
@@ -35,8 +35,7 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
         }
     }, [clicked])
 
-    const IsOBject = () => {
-        if(mesh){
+    const Scene = () => {
             return (
                 <div className='canvas-container'>
                     <Canvas>
@@ -50,9 +49,6 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
                     </Canvas>
                 </div>
             )
-        } else {
-            return null
-        }
     }
 
     return (
@@ -66,7 +62,7 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
                     <h1>{header}</h1>
                     {resource}
                 </div>
-                <IsOBject />
+                {mesh ? <Scene /> : null}
             </div>
         </div>
     )
