@@ -12,7 +12,7 @@ const Earth = (props : EarthProps) =>{
 
     useEffect(() => {
         const onScroll = () => {
-          const scrollCheck = window.scrollY < 600
+          const scrollCheck = window.scrollY < 800
           if (scrollCheck !== scroll) {
             setScroll(scrollCheck)
           }

@@ -1,10 +1,12 @@
 import { Group } from "three";
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { ObjectMap } from "@react-three/fiber";
 
 export interface Resources {
     url: string,
     header: string,
     resource: string,
-    mesh?: Group
+    mesh?: Group | (GLTF & ObjectMap)
 }
 
 export interface EarthProps {

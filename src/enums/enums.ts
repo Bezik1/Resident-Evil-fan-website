@@ -10,7 +10,8 @@ export enum RESOURCE_TYPES {
     info = 'info',
     grenland = 'grenland',
     spain = 'spain',
-    village = 'village'
+    village = 'village',
+    kijuju = 'kijuju'
 }
 
 export enum MODELS_URLS {

@@ -2,11 +2,12 @@
     font-family:garamond,serif;
     z-index: 1;
     position: absolute;
+    top: 50px;
     background: radial-gradient(#326c87, transparent);
     left: 50%;
+    height: 1300px;
     width: 700px;
 }
-
 
 
 .umbrella {
