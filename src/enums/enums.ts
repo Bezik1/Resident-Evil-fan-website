@@ -7,7 +7,10 @@ export enum RESOURCE_TYPES {
     institution_1 = 'institution_1',
     arklay = 'arklay',
     europe_lab = 'europe_lab',
-    info = 'info'
+    info = 'info',
+    grenland = 'grenland',
+    spain = 'spain',
+    village = 'village'
 }
 
 export enum MODELS_URLS {
