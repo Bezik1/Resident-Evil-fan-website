@@ -6,17 +6,18 @@ import Information from '../Information/Information'
 import Navbar from '../Navbar/Navbar';
 import { RESOURCE_TYPES } from '../../enums/enums';
 
-const DataBase = () =>{
+const DataBase = ({ scroll } : { scroll: boolean }) =>{
     const { info } = RESOURCE_TYPES
 
     const [clicked, click] = useState(true)
-    const [type, setType] = useState<string>(info)
+    const [type, setType] = useState<RESOURCE_TYPES>(info)
 
     let EarthProps : EarthInterface = {
         clicked,
         type,
         click,
         setType,
+        scroll
     }
 
     return (

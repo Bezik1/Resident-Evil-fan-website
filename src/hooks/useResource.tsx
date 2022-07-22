@@ -19,7 +19,7 @@ import { RESOURCE_TYPES } from '../enums/enums'
 import { Resources } from '../interfaces/interfaces'
 import { MODELS_URLS } from '../enums/enums'
 
-export const useResource = (type : string) =>{
+export const useResource = (type : RESOURCE_TYPES) =>{
     const [data, setData] = useState<Resources>({
         url: '', 
         header: '', 
@@ -110,7 +110,7 @@ export const useResource = (type : string) =>{
                     })
                     break
         }
-    }, [type, flower, institution_1, arklay, europe_lab, OBJ, info, grenland, spain, village, kijuju])
+    }, [type, flower, institution_1, arklay, europe_lab, OBJ, info, grenland, spain, village, kijuju, shanghai])
 
     return {url, header, resource, obj, color }
 }

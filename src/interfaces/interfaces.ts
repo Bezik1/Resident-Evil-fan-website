@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Color } from 'three'
+import { RESOURCE_TYPES } from "../enums/enums";
 
 export interface Resources {
     url: string,
@@ -12,15 +13,21 @@ export interface Resources {
 export interface EarthProps {
     props: {
         clicked: boolean,
-        type: string,
+        type: RESOURCE_TYPES,
         click: React.Dispatch<React.SetStateAction<boolean>>,
-        setType: React.Dispatch<React.SetStateAction<string>>
+        setType: React.Dispatch<React.SetStateAction<RESOURCE_TYPES>>,
+        scroll: boolean
     }
 }
 
 export interface EarthInterface {
     clicked: boolean,
     click: React.Dispatch<React.SetStateAction<boolean>>,
-    setType: React.Dispatch<React.SetStateAction<string>>,
-    type: string
+    setType: React.Dispatch<React.SetStateAction<RESOURCE_TYPES>>,
+    type: RESOURCE_TYPES
+    scroll: boolean
+}
+
+export interface ObjectValueMapInterface {
+    value: RESOURCE_TYPES 
 }

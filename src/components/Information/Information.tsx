@@ -7,9 +7,10 @@ import UMBRELLA_LOGO from '../../assets/logo.png'
 import './Information.css'
 
 import { useResource } from '../../hooks/useResource'
+import { RESOURCE_TYPES } from '../../enums/enums'
 
 
-const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
+const Information = ({ clicked, type } : { clicked: boolean, type: RESOURCE_TYPES }) =>{
     const infoRef = useRef<HTMLDivElement>(null!)
     
     const { url, header, resource, obj, color } = useResource(type)

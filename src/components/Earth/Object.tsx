@@ -8,26 +8,27 @@ import { EarthProps } from '../../interfaces/interfaces';
 
 const Object = (props : EarthProps) =>{
     const { clicked, type, click, setType } = props.props
-    const { flower, institution_1, arklay, europe_lab, grenland, spain, village, kijuju, shanghai } = RESOURCE_TYPES
+    const { flower, institution_1, arklay, europe_lab, 
+    grenland, spain, village, kijuju, shanghai } = RESOURCE_TYPES
 
     const { EARTH_URL } = TEXTURE_URLS 
     const EARTH_TEXTURE = useLoader(TextureLoader, EARTH_URL)
 
     const earthRef = useRef<Group>(null!)
 
-    const handleClick = (type : string) =>{
+    const handleClick = (type : RESOURCE_TYPES) =>{
         click(!clicked)
         setType(type)
     }
 
-    const NewPoint = ({ type, pos} : { type : RESOURCE_TYPES, pos : Vector3 }) => (
-        <mesh onClick={() => handleClick(type)} position={pos}>
+    const NewPoint = ({ t, pos } : { t : RESOURCE_TYPES, pos : Vector3 }) => (
+        <mesh onClick={() => handleClick(t)} position={pos}>
             <sphereGeometry args={[0.03, 20, 20]} />
-            <pointsMaterial />
+            <pointsMaterial color={t === type ? 'red' : 'white'}/>
         </mesh>
     )
 
-    const whichRotateY = (type : string) =>{
+    const whichRotateY = (type : RESOURCE_TYPES) =>{
         switch(true){
             case type === flower:
                 return -1 * Math.PI/3
@@ -53,7 +54,7 @@ const Object = (props : EarthProps) =>{
     } 
 
     
-    const whichRotateCamera = (type : string) =>{
+    const whichRotateCamera = (type : RESOURCE_TYPES) =>{
         switch(true){
             case type === flower:
                 return -2
@@ -89,15 +90,15 @@ const Object = (props : EarthProps) =>{
 
     return (
         <group ref={earthRef}>
-            <NewPoint type={flower} pos={new Vector3(1.9, -1.5, 1)} />
-            <NewPoint type={institution_1} pos={new Vector3(0, 1, 2.4)} />
-            <NewPoint type={arklay} pos={new Vector3(-1, 0.5, 2.35)} />
-            <NewPoint type={europe_lab} pos={new Vector3(2.2, 0.7, 1.2)} />
-            <NewPoint type={grenland} pos={new Vector3(0.5, 1.4, 2.15)} />
-            <NewPoint type={spain} pos={new Vector3(1.9, 0.3, 1.75)} />
-            <NewPoint type={village} pos={new Vector3(2.35, 0.9, 0.7)} />
-            <NewPoint type={kijuju} pos={new Vector3(1.8, -0.3, 1.9)} />
-            <NewPoint type={shanghai} pos={new Vector3(1.5, 0, -2.15)} />
+            <NewPoint t={flower} pos={new Vector3(1.9, -1.5, 1)} />
+            <NewPoint t={institution_1} pos={new Vector3(0, 1, 2.4)} />
+            <NewPoint t={arklay} pos={new Vector3(-1, 0.5, 2.35)} />
+            <NewPoint t={europe_lab} pos={new Vector3(2.2, 0.7, 1.2)} />
+            <NewPoint t={grenland} pos={new Vector3(0.5, 1.4, 2.15)} />
+            <NewPoint t={spain} pos={new Vector3(1.9, 0.3, 1.75)} />
+            <NewPoint t={village} pos={new Vector3(2.35, 0.9, 0.7)} />
+            <NewPoint t={kijuju} pos={new Vector3(1.8, -0.3, 1.9)} />
+            <NewPoint t={shanghai} pos={new Vector3(1.5, 0, -2.15)} />
             <mesh>
                 <sphereGeometry args={[2.6, 100, 200, 100]} />
                 <meshPhongMaterial map={EARTH_TEXTURE} wireframe={true} />
