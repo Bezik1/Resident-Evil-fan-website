@@ -5,7 +5,7 @@ import { RESOURCE_TYPES } from '../../enums/enums'
 import { EarthProps, ObjectValueMapInterface } from '../../interfaces/interfaces'
 
 const Navbar = (props : EarthProps) =>{
-    const { clicked, click, setType } = props.props
+    const { clicked, type, click, setType } = props.props
     const { info } = RESOURCE_TYPES
 
     const TableMap = <T extends {[k : string] : RESOURCE_TYPES}>(enumerable: T) : ObjectValueMapInterface =>{
@@ -22,9 +22,13 @@ const Navbar = (props : EarthProps) =>{
           })
     }
 
-    const handleClick = (type : RESOURCE_TYPES) =>{
-        setType(type)
-        click(!clicked)
+    const handleClick = (t : RESOURCE_TYPES) =>{
+        setType(t)
+        if(t === type){
+            return null
+        } else {
+            click(!clicked)
+        }
     } 
 
     return (

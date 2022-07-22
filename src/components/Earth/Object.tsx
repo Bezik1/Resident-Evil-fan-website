@@ -1,7 +1,7 @@
 import { Group, TextureLoader, Vector3 } from 'three'
-import { useRef } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import gsap from 'gsap';
-import { useLoader, useFrame, RootState } from '@react-three/fiber';
+import { useLoader, useFrame, useThree } from '@react-three/fiber';
 
 import { TEXTURE_URLS, RESOURCE_TYPES } from '../../enums/enums'
 import { EarthProps } from '../../interfaces/interfaces';
@@ -13,22 +13,27 @@ const Object = (props : EarthProps) =>{
 
     const { EARTH_URL } = TEXTURE_URLS 
     const EARTH_TEXTURE = useLoader(TextureLoader, EARTH_URL)
+    const { camera } = useThree()
 
     const earthRef = useRef<Group>(null!)
 
-    const handleClick = (type : RESOURCE_TYPES) =>{
-        click(!clicked)
-        setType(type)
+    const handleClick = (t : RESOURCE_TYPES) =>{
+        if(t === type){
+            return null
+        } else {
+            click(!clicked)
+        }
+        setType(t)
     }
 
     const NewPoint = ({ t, pos } : { t : RESOURCE_TYPES, pos : Vector3 }) => (
         <mesh onClick={() => handleClick(t)} position={pos}>
             <sphereGeometry args={[0.03, 20, 20]} />
-            <pointsMaterial color={t === type ? 'red' : 'white'}/>
+            <pointsMaterial color={t === type ? 'hotpink' : 'white'}/>
         </mesh>
     )
 
-    const whichRotateY = (type : RESOURCE_TYPES) =>{
+    const whichRotateY = useCallback((type : RESOURCE_TYPES) =>{
         switch(true){
             case type === flower:
                 return -1 * Math.PI/3
@@ -51,10 +56,10 @@ const Object = (props : EarthProps) =>{
             default:
                 return 0
         }
-    } 
+    }, [flower, institution_1, arklay, europe_lab, grenland, spain, village, kijuju, shanghai])
 
     
-    const whichRotateCamera = (type : RESOURCE_TYPES) =>{
+    const whichRotateCamera = useCallback((type : RESOURCE_TYPES) =>{
         switch(true){
             case type === flower:
                 return -2
@@ -75,9 +80,9 @@ const Object = (props : EarthProps) =>{
             default:
                 return 0
         }
-    } 
+    }, [flower, institution_1, arklay, europe_lab, grenland, spain, village, kijuju])
 
-    useFrame(({ camera } : RootState) =>{
+    useEffect(() => {
         gsap.to(earthRef.current.rotation, {
             y: whichRotateY(type),
             duration: 1
@@ -86,7 +91,9 @@ const Object = (props : EarthProps) =>{
             y: whichRotateCamera(type),
             duration: 1
         })
-    })
+    }, [camera.position, type, whichRotateY, whichRotateCamera])
+
+    useFrame(() => earthRef.current.rotation.y -= 0.0003)
 
     return (
         <group ref={earthRef}>

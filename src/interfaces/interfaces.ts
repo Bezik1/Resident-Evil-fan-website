@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Color } from 'three'
+import { Color, Mesh, PlaneGeometry, ShaderMaterial } from 'three'
 import { RESOURCE_TYPES } from "../enums/enums";
 
 export interface Resources {
@@ -31,3 +31,18 @@ export interface EarthInterface {
 export interface ObjectValueMapInterface {
     value: RESOURCE_TYPES 
 }
+
+interface WaveMaterial extends ShaderMaterial {
+    uniforms: {
+        u_time: {
+            type: string,
+            value: number
+        }
+        texture1: {
+            type: string,
+            value: THREE.Texture
+        }
+    }
+}
+
+export interface Uniform extends Mesh<PlaneGeometry, WaveMaterial> {}
