@@ -16,9 +16,7 @@ const Object = (props : EarthProps) =>{
 
     const handleClick = (type : string) =>{
         click(!clicked)
-        if(clicked === false) 
-            setType(type)
-        
+        setType(type)
     }
 
     const NewPoint = ({ type, pos} : { type : RESOURCE_TYPES, pos : Vector3 }) => (

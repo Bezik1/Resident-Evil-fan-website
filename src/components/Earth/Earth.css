@@ -1,12 +1,12 @@
 .Earth {
-    margin-top: 50px;
+    margin-top: 25px;
     position:fixed;
     width: 50%;
     height: 800px;
 }
 
 .Earth-static {
-    margin-top: 50px;
+    margin-top: 25px;
     width: 50%;
     height: 800px;
 }

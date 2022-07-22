@@ -20,7 +20,7 @@ const DataBase = () =>{
 
     return (
         <div className="database">
-            <Navbar setType={setType} />
+            <Navbar props={EarthProps} />
             <Information clicked={clicked} type={type} />
             <Earth props={EarthProps} />
         </div>

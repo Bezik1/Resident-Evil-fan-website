@@ -15,35 +15,31 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
     const { url, header, resource, obj, color } = useResource(type)
 
     useEffect(() =>{
-        console.log(clicked)
-        if(clicked){
-            gsap.to(infoRef.current.children, {
-                x: 0,
-                y: 0,
-                scale: 1,
-                opacity: 1
-            })
-        } else {
-            gsap.to(infoRef.current.children, {
-                x: -700,
-                y: 100,
-                scale: 0.1,
-                opacity: 0
-            })
-        }
+        gsap.fromTo(infoRef.current.children, {
+            x: -700,
+            y: 100,
+            scale: 0.1,
+            opacity: 0
+        }, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 1
+        })
     }, [clicked])
 
     const Scene = () => {
-            return (
-                <div className='canvas-container'>
-                    <Canvas>
-                        <ambientLight />
-                        <OrbitControls  enableRotate={false}/>
-                        {color ? <Light /> : null}
-                        {obj}
-                    </Canvas>
-                </div>
-            )
+        return (
+            <div className='canvas-container'>
+                <Canvas>
+                    <ambientLight />
+                    <OrbitControls  enableRotate={false}/>
+                    {color ? <Light /> : null}
+                    {obj}
+                </Canvas>
+            </div>
+        )
     }
 
     const Light = () => {
