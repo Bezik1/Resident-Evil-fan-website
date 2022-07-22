@@ -3,15 +3,15 @@ export enum TEXTURE_URLS {
 }
 
 export enum RESOURCE_TYPES {
-    flower = 'flower',
-    institution_1 = 'institution_1',
-    arklay = 'arklay',
-    europe_lab = 'europe_lab',
-    info = 'info',
-    grenland = 'grenland',
-    spain = 'spain',
-    village = 'village',
-    kijuju = 'kijuju'
+    info = 'Info',
+    flower = 'Flower',
+    institution_1 = 'Institution',
+    arklay = 'Arklay',
+    europe_lab = 'Europe lab',
+    grenland = 'Grenland',
+    spain = 'Spain',
+    village = 'Village',
+    kijuju = 'Kijuju'
 }
 
 export enum MODELS_URLS {

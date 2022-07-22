@@ -1,20 +1,18 @@
 import gsap from 'gsap'
-import { Color } from 'three'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
 
 import UMBRELLA_LOGO from '../../assets/logo.png'
 import './Information.css'
 
 import { useResource } from '../../hooks/useResource'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 
 
 const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
     const infoRef = useRef<HTMLDivElement>(null!)
     
-    const { url, header, resource, mesh } = useResource(type)
-    const color = new Color('#3c80b5')
+    const { url, header, resource, obj, color } = useResource(type)
 
     useEffect(() =>{
         console.log(clicked)
@@ -40,14 +38,22 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
                 <div className='canvas-container'>
                     <Canvas>
                         <ambientLight />
-                        <pointLight color={color} intensity={100} position={[2, 0, 2]}/>
-                        <pointLight color={color} intensity={100} position={[-2, 0, -2]}/>
-                        <pointLight color={color} intensity={100} position={[4, 1, 0]}/>
-                        <pointLight color={color} intensity={100} position={[-4, 1, 0]}/>
                         <OrbitControls  enableRotate={false}/>
-                        <primitive object={mesh} position={[0, 1.5, 1]} />
+                        {color ? <Light /> : null}
+                        {obj}
                     </Canvas>
                 </div>
+            )
+    }
+
+    const Light = () => {
+            return (
+                <>
+                    <pointLight color={color} intensity={100} position={[2, 0, 2]}/>
+                    <pointLight color={color} intensity={100} position={[-2, 0, -2]}/>
+                    <pointLight color={color} intensity={100} position={[4, 1, 0]}/>
+                    <pointLight color={color} intensity={100} position={[-4, 1, 0]}/>
+                </>
             )
     }
 
@@ -62,7 +68,7 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
                     <h1>{header}</h1>
                     {resource}
                 </div>
-                {mesh ? <Scene /> : null}
+                {obj ? <Scene /> : null}
             </div>
         </div>
     )

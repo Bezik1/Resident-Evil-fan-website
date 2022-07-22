@@ -1,12 +1,12 @@
-import { Group } from "three";
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { ObjectMap } from "@react-three/fiber";
+import { ReactNode } from "react";
+import { Color } from 'three'
 
 export interface Resources {
     url: string,
     header: string,
     resource: string,
-    mesh?: Group | (GLTF & ObjectMap)
+    obj?: ReactNode,
+    color?: Color
 }
 
 export interface EarthProps {

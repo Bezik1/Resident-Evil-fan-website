@@ -3,6 +3,7 @@ import { EarthInterface } from '../../interfaces/interfaces';
 
 import Earth from '../Earth/Earth';
 import Information from '../Information/Information'
+import Navbar from '../Navbar/Navbar';
 import { RESOURCE_TYPES } from '../../enums/enums';
 
 const DataBase = () =>{
@@ -19,6 +20,7 @@ const DataBase = () =>{
 
     return (
         <div className="database">
+            <Navbar setType={setType} />
             <Information clicked={clicked} type={type} />
             <Earth props={EarthProps} />
         </div>

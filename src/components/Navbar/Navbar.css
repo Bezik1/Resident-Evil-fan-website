@@ -1,0 +1,48 @@
+body {
+    scroll-behavior: smooth;
+}
+
+.nav {
+    filter: opacity(80%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #00374f;
+    z-index: 5;
+    color: #fff;
+}
+
+.nav-links {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.nav-link {
+    transition: 0.5s;
+    padding: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    color: #fff;
+    text-shadow:
+    0 0 2px #bbb,
+    0 0 4px #bbb,
+    0 0 6px #bbb,
+    0 0 40px #bbb,
+    0 0 80px #bbb,
+    0 0 90px #bbb,
+    0 0 150px #bbb;
+}
+
+.nav-link:hover {
+    transition: 0.5s;
+    text-shadow:
+    0 0 2px #ffffff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 40px #fff,
+    0 0 80px #fff,
+    0 0 90px #fff,
+    0 0 150px #fff;
+}
