@@ -12,6 +12,7 @@ export interface Resources {
 export interface EarthProps {
     props: {
         clicked: boolean,
+        type: string,
         click: React.Dispatch<React.SetStateAction<boolean>>,
         setType: React.Dispatch<React.SetStateAction<string>>
     }
@@ -20,5 +21,6 @@ export interface EarthProps {
 export interface EarthInterface {
     clicked: boolean,
     click: React.Dispatch<React.SetStateAction<boolean>>,
-    setType: React.Dispatch<React.SetStateAction<string>>
+    setType: React.Dispatch<React.SetStateAction<string>>,
+    type: string
 }

@@ -5,13 +5,14 @@ export enum TEXTURE_URLS {
 export enum RESOURCE_TYPES {
     info = 'Info',
     flower = 'Flower',
-    institution_1 = 'Institution',
+    institution_1 = 'Racoon City',
     arklay = 'Arklay',
     europe_lab = 'Europe lab',
     grenland = 'Grenland',
     spain = 'Spain',
     village = 'Village',
-    kijuju = 'Kijuju'
+    kijuju = 'Kijuju',
+    shanghai = 'Shanghai'
 }
 
 export enum MODELS_URLS {

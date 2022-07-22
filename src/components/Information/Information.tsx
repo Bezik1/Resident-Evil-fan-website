@@ -25,7 +25,6 @@ const Information = ({ clicked, type } : { clicked: boolean, type: string }) =>{
             y: 0,
             scale: 1,
             opacity: 1,
-            duration: 1
         })
     }, [clicked])
 

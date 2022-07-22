@@ -14,8 +14,9 @@ const DataBase = () =>{
 
     let EarthProps : EarthInterface = {
         clicked,
+        type,
         click,
-        setType
+        setType,
     }
 
     return (

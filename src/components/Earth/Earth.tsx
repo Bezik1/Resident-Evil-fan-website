@@ -33,7 +33,7 @@ const Earth = (props : EarthProps) =>{
             <Canvas>
                 <Object props={props.props} />
                 <ambientLight intensity={0.8}/>
-                <OrbitControls autoRotateSpeed={-0.2} autoRotate={true} />
+                <OrbitControls enableZoom={false} enableRotate={false} />
             </Canvas>
         </div>
     )
