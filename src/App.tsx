@@ -10,7 +10,7 @@ const App = () =>{
 
   useEffect(() => {
       const onScroll = () => {
-        const scrollCheck = window.scrollY < 800
+        const scrollCheck = window.scrollY < 1300
         if (scrollCheck !== scroll) {
           setScroll(scrollCheck)
         }

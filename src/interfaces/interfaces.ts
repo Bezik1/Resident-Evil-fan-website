@@ -13,23 +13,23 @@ export interface Resources {
 export interface EarthProps {
     props: {
         clicked: boolean,
+        scroll: boolean,
         type: RESOURCE_TYPES,
         click: React.Dispatch<React.SetStateAction<boolean>>,
-        setType: React.Dispatch<React.SetStateAction<RESOURCE_TYPES>>,
-        scroll: boolean
+        setType: React.Dispatch<React.SetStateAction<RESOURCE_TYPES>>
     }
 }
 
 export interface EarthInterface {
+    scroll: boolean
     clicked: boolean,
+    type: RESOURCE_TYPES
     click: React.Dispatch<React.SetStateAction<boolean>>,
     setType: React.Dispatch<React.SetStateAction<RESOURCE_TYPES>>,
-    type: RESOURCE_TYPES
-    scroll: boolean
 }
 
 export interface ObjectValueMapInterface {
-    value: RESOURCE_TYPES 
+    value: RESOURCE_TYPES
 }
 
 interface WaveMaterial extends ShaderMaterial {

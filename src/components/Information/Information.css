@@ -47,6 +47,7 @@
 }
 
 .animation-wrapper > .img {
+    z-index: 3;
     float: left;
     margin: 20px;
     width: 400px;

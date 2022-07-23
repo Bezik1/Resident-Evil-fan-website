@@ -112,5 +112,5 @@ export const useResource = (type : RESOURCE_TYPES) =>{
         }
     }, [type, flower, institution_1, arklay, europe_lab, OBJ, info, grenland, spain, village, kijuju, shanghai])
 
-    return {url, header, resource, obj, color }
+    return { url, header, resource, obj, color }
 }
