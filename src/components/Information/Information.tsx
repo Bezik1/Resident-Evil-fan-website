@@ -24,15 +24,9 @@ const Information = ({ clicked, type } : { clicked: boolean, type: RESOURCE_TYPE
 
     useEffect(() =>{
         gsap.fromTo(infoRef.current.children, {
-            x: -700,
-            y: 100,
-            scale: 0.1,
             opacity: 0,
             duration: 1
         }, {
-            x: 0,
-            y: 0,
-            scale: 1,
             opacity: 1,
             duration: 1
         })
