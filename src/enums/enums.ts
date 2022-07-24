@@ -4,17 +4,18 @@ export enum TEXTURE_URLS {
 
 export enum RESOURCE_TYPES {
     info = 'Info',
-    flower = 'Flower',
-    institution_1 = 'Racoon City',
     arklay = 'Arklay',
-    europe_lab = 'Europe lab',
+    institution_1 = 'Racoon City',
     grenland = 'Grenland',
-    spain = 'Spain',
-    village = 'Village',
     kijuju = 'Kijuju',
+    spain = 'Spain',
+    europe_lab = 'Europe lab',
+    flower = 'Flower',
+    village = 'Village',
     shanghai = 'Shanghai'
 }
 
 export enum MODELS_URLS {
-    NEMESIS_URL = 'nemesis.OBJ'
+    NEMESIS_URL = 'nemesis.OBJ',
+    DOOR_URL = 'door.OBJ'
 }

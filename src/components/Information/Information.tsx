@@ -1,6 +1,5 @@
 import gsap from 'gsap'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
 import { TextureLoader, DoubleSide } from 'three'
 
@@ -37,7 +36,6 @@ const Information = ({ clicked, type } : { clicked: boolean, type: RESOURCE_TYPE
             <div className='canvas-container'>
                 <Canvas>
                     <ambientLight />
-                    <OrbitControls  enableRotate={false}/>
                     {color ? <Light /> : null}
                     {obj}
                 </Canvas>
@@ -45,8 +43,7 @@ const Information = ({ clicked, type } : { clicked: boolean, type: RESOURCE_TYPE
         )
     }
 
-    const Light = () => {
-            return (
+    const Light = () => (
                 <>
                     <pointLight color={color} intensity={100} position={[2, 0, 2]}/>
                     <pointLight color={color} intensity={100} position={[-2, 0, -2]}/>
@@ -54,7 +51,6 @@ const Information = ({ clicked, type } : { clicked: boolean, type: RESOURCE_TYPE
                     <pointLight color={color} intensity={100} position={[-4, 1, 0]}/>
                 </>
             )
-    }
 
     const CreateImg = () =>{
         useFrame(({ clock }) => {

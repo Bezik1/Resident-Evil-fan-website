@@ -31,8 +31,16 @@ export const useResource = (type : RESOURCE_TYPES) =>{
         info, grenland, spain, village, kijuju, shanghai } = RESOURCE_TYPES
     const { url, header, resource, obj, color } = data
     
-    const { NEMESIS_URL } = MODELS_URLS
+    const { NEMESIS_URL, DOOR_URL } = MODELS_URLS
     const OBJ = useLoader(OBJLoader, NEMESIS_URL)
+    const DOOR_OBJ = useLoader(OBJLoader, DOOR_URL)
+
+    DOOR_OBJ.children.forEach((mesh : any) => {
+        mesh.material = new MeshPhongMaterial({color: new Color('#000')}) 
+    })
+
+    DOOR_OBJ.rotation.x = -Math.PI/2
+    DOOR_OBJ.rotation.z = 0.3
 
     OBJ.children.forEach((mesh : any) => {
         mesh.material = new MeshPhongMaterial({color: new Color('#000')}) 
@@ -50,7 +58,10 @@ export const useResource = (type : RESOURCE_TYPES) =>{
                     setData({
                         url: RACOON_URL, 
                         header: 'Racoon City', 
-                        resource: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure'})
+                        resource: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure',
+                        obj: <primitive object={DOOR_OBJ} position={[0, 0, -30]} />,
+                        color: new Color('#3c80b5')
+                    })   
                     break
                 case type === arklay:
                     setData({
@@ -110,7 +121,7 @@ export const useResource = (type : RESOURCE_TYPES) =>{
                     })
                     break
         }
-    }, [type, flower, institution_1, arklay, europe_lab, OBJ, info, grenland, spain, village, kijuju, shanghai])
+    }, [type, flower, institution_1, arklay, europe_lab, OBJ, info, grenland, spain, village, kijuju, shanghai, DOOR_OBJ])
 
     return { url, header, resource, obj, color }
 }
