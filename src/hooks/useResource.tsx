@@ -3,21 +3,11 @@ import { MeshPhongMaterial } from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { useState, useEffect } from 'react'
 
-import FLOWER_URL from '../assets/flowers.jpg'
-import RACOON_URL from '../assets/racoon.webp'
-import ARKLAY_URL from '../assets/arklay.webp'
-import EUROPE_URL from '../assets/europe.webp'
-import LOGO_URL from '../assets/logo.jpg'
-import GRENLAND_URL from '../assets/alexander.jpg'
-import LAS_PLAGAS from '../assets/plaga.jpg'
-import VILLAGE_URL from '../assets/village.jpg'
-import KIJUJU_URL from '../assets/kijuju.webp'
-import SHANGHAI_URL from '../assets/shanghai.webp'
-
 import { COLOR } from '../constans/colors'
 import { RESOURCE_TYPES } from '../constans/enums'
 import { Resources } from '../interfaces/interfaces'
 import { MODELS_URLS } from '../constans/enums'
+import { URLS } from '../constans/urls'
 
 export const useResource = (type: RESOURCE_TYPES) =>{
     const [data, setData] = useState<Resources>({
@@ -26,6 +16,7 @@ export const useResource = (type: RESOURCE_TYPES) =>{
         resource: '', 
         obj: null!
     })
+
     const { url, header, resource, obj, color } = data
     const { BLACK, BLUE } = COLOR
     
@@ -46,7 +37,13 @@ export const useResource = (type: RESOURCE_TYPES) =>{
 
     useEffect(() =>{
         const { flower, institution_1, arklay, europe_lab, 
-            info, grenland, spain, village, kijuju, shanghai } = RESOURCE_TYPES
+            info, grenland, spain, village, kijuju, shanghai 
+        } = RESOURCE_TYPES
+
+         const { FLOWER_URL, ARKLAY_URL, RACOON_URL, VILLAGE_URL,
+            KIJUJU_URL, EUROPE_URL, LOGO_URL, GRENLAND_URL,
+            LAS_PLAGAS, SHANGHAI_URL  
+        } = URLS
 
         switch(type){
             case flower: 
