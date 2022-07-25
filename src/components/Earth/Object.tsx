@@ -3,7 +3,7 @@ import { useRef, useEffect, useCallback } from 'react';
 import gsap from 'gsap';
 import { useLoader, useFrame, useThree } from '@react-three/fiber';
 
-import { TEXTURE_URLS, RESOURCE_TYPES } from '../../enums/enums'
+import { TEXTURE_URLS, RESOURCE_TYPES } from '../../constans/enums'
 import { EarthProps } from '../../interfaces/interfaces';
 
 const Object = (props : EarthProps) =>{
@@ -17,7 +17,7 @@ const Object = (props : EarthProps) =>{
 
     const earthRef = useRef<Group>(null!)
 
-    const handleClick = (currentType : RESOURCE_TYPES) =>{
+    const handleClick = (currentType: RESOURCE_TYPES) =>{
         setType(currentType)
         if(currentType === type){
             return null
@@ -26,14 +26,14 @@ const Object = (props : EarthProps) =>{
         }
     }
 
-    const NewPoint = ({ t, pos } : { t : RESOURCE_TYPES, pos : Vector3 }) => (
+    const NewPoint = ({ t, pos } : { t: RESOURCE_TYPES, pos: Vector3 }) => (
         <mesh onClick={() => handleClick(t)} position={pos}>
             <sphereGeometry args={[0.03, 20, 20]} />
             <pointsMaterial color={t === type ? 'hotpink' : 'white'}/>
         </mesh>
     )
 
-    const whichRotateY = useCallback((type : RESOURCE_TYPES) =>{
+    const whichRotateY = useCallback((type: RESOURCE_TYPES) =>{
         switch(true){
             case type === flower:
                 return -1 * Math.PI/3
@@ -59,7 +59,7 @@ const Object = (props : EarthProps) =>{
     }, [flower, institution_1, arklay, europe_lab, grenland, spain, village, kijuju, shanghai])
 
     
-    const whichRotateCamera = useCallback((type : RESOURCE_TYPES) =>{
+    const whichRotateCamera = useCallback((type: RESOURCE_TYPES) =>{
         switch(true){
             case type === flower:
                 return -2

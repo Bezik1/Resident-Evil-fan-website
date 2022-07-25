@@ -9,7 +9,7 @@ import './Information.css'
 
 import { Uniform } from '../../interfaces/interfaces'
 import { useResource } from '../../hooks/useResource'
-import { RESOURCE_TYPES } from '../../enums/enums'
+import { RESOURCE_TYPES } from '../../constans/enums'
 
 import frag from "./shaders/frag";
 import vert from "./shaders/vert";

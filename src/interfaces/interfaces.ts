@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Color, Mesh, PlaneGeometry, ShaderMaterial } from 'three'
-import { RESOURCE_TYPES } from "../enums/enums";
+import { RESOURCE_TYPES } from "../constans/enums";
 
 export interface Resources {
     url: string,
@@ -46,3 +46,8 @@ interface WaveMaterial extends ShaderMaterial {
 }
 
 export interface Uniform extends Mesh<PlaneGeometry, WaveMaterial> {}
+
+export interface COLORS {
+    BLACK: Color,
+    BLUE: Color
+}

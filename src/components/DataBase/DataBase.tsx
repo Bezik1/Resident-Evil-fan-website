@@ -4,7 +4,7 @@ import { EarthInterface } from '../../interfaces/interfaces';
 import Earth from '../Earth/Earth';
 import Information from '../Information/Information'
 import Navbar from '../Navbar/Navbar';
-import { RESOURCE_TYPES } from '../../enums/enums';
+import { RESOURCE_TYPES } from '../../constans/enums';
 
 const DataBase = ({ scroll } : { scroll: boolean }) =>{
     const { info } = RESOURCE_TYPES

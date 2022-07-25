@@ -1,14 +1,14 @@
 import './Navbar.css'
 import LOGO_URL from '../../assets/logo.png'
 
-import { RESOURCE_TYPES } from '../../enums/enums'
+import { RESOURCE_TYPES } from '../../constans/enums'
 import { EarthProps, ObjectValueMapInterface } from '../../interfaces/interfaces'
 
 const Navbar = (props : EarthProps) =>{
     const { clicked, type, click, setType } = props.props
     const { info } = RESOURCE_TYPES
 
-    const TableMap = <T extends {[k : string] : RESOURCE_TYPES}>(enumerable: T) : ObjectValueMapInterface =>{
+    const TableMap = <T extends {[k: string] : RESOURCE_TYPES}>(enumerable: T) : ObjectValueMapInterface =>{
         return (Object as any).fromEntries(Object.values(enumerable).map(v => [v, v]))
     }
 
@@ -27,7 +27,7 @@ const Navbar = (props : EarthProps) =>{
           })
     }
 
-    const handleClick = (currentType : RESOURCE_TYPES) : void =>{
+    const handleClick = (currentType: RESOURCE_TYPES) =>{
         setType(currentType)
         if(currentType !== type){
             click(!clicked)
