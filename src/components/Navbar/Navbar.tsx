@@ -13,20 +13,23 @@ const Navbar = (props : EarthProps) =>{
     }
 
     const ObjectValuesMap = (e: ObjectValueMapInterface) =>{
-        return Object.values(e).map((v : RESOURCE_TYPES) =>{
-            if(v === info){
+        return Object.values(e).map((value : RESOURCE_TYPES) =>{
+            if(value === info){
                 return null
             } else {
-                return <div className='nav-link' onClick={() => handleClick(v)} key={v}> {v} </div>
+                return <div 
+                className={value === type ? 'nav-link-active' : 'nav-link'} 
+                onClick={() => handleClick(value)}
+                key={value}> 
+                 {value} 
+                </div>
             }
           })
     }
 
-    const handleClick = (t : RESOURCE_TYPES) =>{
-        setType(t)
-        if(t === type){
-            return null
-        } else {
+    const handleClick = (currentType : RESOURCE_TYPES) : void =>{
+        setType(currentType)
+        if(currentType !== type){
             click(!clicked)
         }
     } 

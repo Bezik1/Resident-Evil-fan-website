@@ -17,13 +17,13 @@ const Object = (props : EarthProps) =>{
 
     const earthRef = useRef<Group>(null!)
 
-    const handleClick = (t : RESOURCE_TYPES) =>{
-        if(t === type){
+    const handleClick = (currentType : RESOURCE_TYPES) =>{
+        setType(currentType)
+        if(currentType === type){
             return null
         } else {
             click(!clicked)
         }
-        setType(t)
     }
 
     const NewPoint = ({ t, pos } : { t : RESOURCE_TYPES, pos : Vector3 }) => (

@@ -12,12 +12,12 @@ const DataBase = ({ scroll } : { scroll: boolean }) =>{
     const [clicked, click] = useState(true)
     const [type, setType] = useState<RESOURCE_TYPES>(info)
 
-    let EarthProps : EarthInterface = {
+    const EarthProps : EarthInterface = {
         clicked,
         type,
+        scroll,
         click,
         setType,
-        scroll
     }
 
     return (

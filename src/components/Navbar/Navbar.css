@@ -60,3 +60,20 @@ body {
     transition: 1s;
     transform: rotate(15deg);
 }
+
+.nav-link-active {
+    cursor: default;
+    transition: 0.5s;
+    padding: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    color: #3c6291;
+    text-shadow:
+    0 0 2px #3c6291,
+    0 0 4px #3c6291,
+    0 0 6px #3c6291,
+    0 0 40px #3c6291,
+    0 0 80px #3c6291,
+    0 0 90px #3c6291,
+    0 0 150px #3c6291;
+}
